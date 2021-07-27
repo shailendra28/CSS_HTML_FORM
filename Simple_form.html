@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic input types</title>
+    <link rel="stylesheet" href="../htmlCssForm/Simple_form.css">
+</head>
+
+<body>
+    <form>
+        <header class="headerContainer">
+            <h1>HTML 5 Form Input Fields</h1>
+        </header>
+        <div>
+            <label for="text"><strong>Enter First Name:</strong> </label>
+            <input type="text" id="text" name="text">
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <button><strong>Submit</strong></button>
+        </div>
+    </form>
+    <script>
+        const text = document.querySelector('#text');
+        const textError = document.querySelector('.text-error');
+        text.addEventListener('input', function() {
+            const nameRegex = /^[A-Z]{1}[a-z]{2,}$/;
+            if (nameRegex.test(text.value))
+                textError.textContent = "";
+            else textError.textContent = "Name is Incorrect ";
+        });
+    </script>
+</body>
+
+</html>
